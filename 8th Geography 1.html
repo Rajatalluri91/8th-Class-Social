@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>వనరులు - పాఠ్యాంశం</title>
+    <!-- Google Fonts: Mandali (తెలుగు) & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f7fafc;
+            --container-bg: #ffffff;
+            --text-color: #2d3748;
+            --heading-color: #1a202c;
+            --primary-color: #2b6cb0;
+            --accent-color: #319795;
+            --border-color: #e2e8f0;
+            --quote-bg: #edfdfd;
+            --quote-border: #319795;
+            --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            --toggle-bg: #cbd5e0;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121620;
+            --container-bg: #1a202c;
+            --text-color: #e2e8f0;
+            --heading-color: #f7fafc;
+            --primary-color: #63b3ed;
+            --accent-color: #4fd1c5;
+            --border-color: #2d3748;
+            --quote-bg: #1e2d3d;
+            --quote-border: #4fd1c5;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --toggle-bg: #4a5568;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+
+        body {
+            font-family: 'Mandali', 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+            font-size: 1.2rem;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Responsive Header */
+        header {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Improved Switch Animation */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 26px;
+            position: relative;
+            width: 48px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: var(--toggle-bg);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: white;
+            bottom: 3px;
+            content: "";
+            height: 20px;
+            left: 3px;
+            position: absolute;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 20px;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .mode-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        /* Container Optimization for Mobile & Desktop */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.2rem;
+            background-color: var(--container-bg);
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                margin: 1.5rem auto;
+                padding: 2.5rem;
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+            }
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.3rem;
+            margin-top: 1.8rem;
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        h4 {
+            margin-top: 1.2rem;
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
+
+        p {
+            margin: 0.8rem 0;
+            text-align: justify;
+        }
+
+        ul, ol {
+            padding-left: 1.2rem;
+            margin: 0.8rem 0;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            list-style-type: none;
+            padding-left: 1.2rem;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.4rem;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+
+        /* Beautiful Responsive Callout */
+        .highlight-box {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 1rem;
+            margin: 1.2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Image Optimization */
+        .image-container {
+            margin: 1.2rem 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-top: 0.4rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            opacity: 0.8;
+            background-color: var(--container-bg);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>వనరులు (Resources)</h1>
+        <div class="theme-switch-wrapper">
+            <span class="mode-text"></span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <h2>వనరులు - ప్రాథమిక భావనలు</h2>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Natural Resources">
+            <div class="image-caption">ప్రకృతి సిద్ధంగా లభించే నదులు, పర్వతాలు, వృక్ష సంపద</div>
+        </div>
+        <ul>
+            <li>మన అవసరాలను సంతృప్తి పరచడానికి ఉపయోగపడేది ఏదైనా ఒక వనరు.</li>
+            <li>మన చుట్టూ మనం ఉపయోగిస్తున్న నీరు, విద్యుత్, వృక్షములు, కూరగాయలు మొదలగు వాటిలో ఒక సాధారణ లక్షణం ఉంది. వాటి వలన ప్రయోజనం ఉంది కాబట్టే వాటిని మనం ఉపయోగిస్తున్నాము.</li>
+            <li>ఒక వస్తువుకు గల ప్రయోజనమే ఆ వస్తువును లేదా పదార్థాన్ని వనరుగా మారుస్తుంది.</li>
+            <li>వనరులన్నింటికీ విలువ ఉంటుంది.</li>
+            <li>విలువ అంటే వినియోగ అర్హత కలిగి ఉండడం.</li>
+            <li>కొన్ని వనరులు ఆర్థిక విలువను కలిగి ఉంటాయి. ఉదాహరణకు లోహాలు ఆర్థిక విలువలు కలిగి ఉంటాయి.</li>
+            <li>కొన్ని వనరులకి ఆర్థిక విలువ ఉండదు. ఉదాహరణకు ప్రకృతి దృశ్యం ఆర్థిక విలువ కలిగి ఉండక పోవచ్చు.</li>
+            <li>ఆర్థిక విలువ కలిగి ఉన్న వనరులు, ఆర్థిక విలువ కలిగి లేని వనరులు రెండూ ముఖ్యమైనవి. ఇవి మానవ అవసరాలను తీరుస్తాయి.</li>
+            <li>సమయాన్ని బట్టి కొన్ని వనరులు ఆర్థికంగా విలువైనవిగా మారవచ్చు.</li>
+            <li>ఉదాహరణకు మన ఇంట్లో నాయనమ్మ చేసే ఇంటి వైద్య చిట్కాలకు ప్రస్తుతం వాణిజ్య విలువ ఉండకపోవచ్చు. కానీ వాటిని ఒక వైద్య సంస్థ పేటెంట్ చేసి విక్రయిస్తే ఇవి ఆర్థికంగా లాభసాటిగా మారవచ్చు.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>పేటెంట్ (Patent):</strong> ఏదైనా ఒక నూతన ఆలోచన లేదా ఆవిష్కరణ పై ప్రత్యేక హక్కు కలిగి ఉండడాన్ని పేటెంట్ అంటారు.</p>
+        </div>
+
+        <h2>వనరులను మార్చే అంశాలు & సాంకేతికత</h2>
+        <ul>
+            <li>సమయం, సాంకేతికత అనేది వస్తువులను వనరులుగా మార్చగల రెండు ముఖ్యమైన అంశాలు.</li>
+            <li>సమయం, సాంకేతికత అనేది ప్రజల అవసరాలకు సంబంధించినవి.</li>
+            <li>ప్రజల ఆలోచనలు, జ్ఞానము, ఆవిష్కరణలు మరిన్ని నూతన వనరుల సృష్టికి దారి తీస్తాయి. అందువలన ప్రజలే అత్యంత ముఖ్యమైన వనరు.</li>
+            <li>ప్రతి ఆవిష్కరణ ఇతర అనేక ఆవిష్కరణలకు దారితీస్తుంది.</li>
+            <li>నిప్పును కనుక్కోవడం వంటి ప్రక్రియ ఇతర ప్రక్రియలకు దారితీసింది.</li>
+            <li>చక్రం యొక్క ఆవిష్కరణ అంతిమంగా అనేక కొత్త రవాణా విధానాల అభివృద్ధికి దారితీసింది.</li>
+            <li>వేగంగా ప్రవహించే నీటిలోని శక్తిని జల విద్యుత్ గా మార్చే సాంకేతికత దానిని ముఖ్యమైన వనరుగా మార్చింది.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>సాంకేతికత (Technology):</strong> పనులు చేయడం లేదా వస్తువు తయారు చేయడంలో ఉపయోగించే నూతన జ్ఞానం, నైపుణ్యం.</p>
+        </div>
+
+        <h2>వనరుల వర్గీకరణ</h2>
+        <p>వనరులను సాధారణంగా 3 రకాలుగా వర్గీకరించవచ్చు. అవి:</p>
+        <ol style="padding-left: 1.2rem; margin-bottom: 1.2rem;">
+            <li><strong>సహజ వనరులు (Natural Resources)</strong></li>
+            <li><strong>మానవ నిర్మిత వనరులు (Man-made Resources)</strong></li>
+            <li><strong>మానవ వనరులు (Human Resources)</strong></li>
+        </ol>
+
+        <h3>1. సహజ వనరులు</h3>
+        <ul>
+            <li>ప్రకృతి నుండి సహజంగా లభిస్తూ ఎక్కువ మార్పులకు లోను కాకుండా ఉపయోగించే వనరులను సహజ వనరులు అంటారు.</li>
+            <li>ఉదాహరణకు మనం పీల్చే గాలి, నదులు, నీరు, నేల, ఖనిజాలు అన్నీ సహజ వనరులే.</li>
+            <li>సహజ వనరుల్లో అధిక శాతం ప్రకృతి ఉచితంగా ప్రసాదిస్తుంది.</li>
+            <li>సహజ వనరులను నేరుగా ఉపయోగించవచ్చు.</li>
+            <li>కొన్ని సందర్భాలలో సహజ వనరులను మరింత లాభసాటిగా ఉపయోగించడానికి సాధనాలు లేదా సాంకేతికత అవసరమవుతుంది.</li>
+        </ul>
+
+        <p>సహజ వనరులను స్థూలంగా <strong>పునరుత్పాదక</strong> మరియు <strong>పునరుత్పాదక కాని</strong> వనరులుగా వర్గీకరించవచ్చు.</p>
+
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar and Wind Energy">
+            <div class="image-caption">పునరుత్పాదక వనరులకు ఉదాహరణగా నిలిచే సౌరశక్తి మరియు పవనశక్తి</div>
+        </div>
+
+        <h4>ఎ. పునరుత్పాదక వనరులు (Renewable Resources):</h4>
+        <ul>
+            <li>ఇవి పునరుద్ధరించబడేవి లేదా త్వరగా భర్తీ చేయబడేవి.</li>
+            <li>వీటికి ఉదాహరణ: సౌరశక్తి, పవనశక్తి మొదలైనవి.</li>
+            <li>ఇవి మానవ కార్యకలాపాల వలన ప్రభావితం కావు.</li>
+            <li>నీరు, నేల, అడవి వంటి కొన్ని పునరుత్పాదక వనరులను నిర్లక్ష్యంగా వినియోగించడం వల్ల కలిగే ఫలితం వాటి నిల్వలపై పడుతుంది.</li>
+            <li>నీరు అపరిమిత పునరుత్పాదక వనరుగా కనిపిస్తుంది.</li>
+        </ul>
+
+        <h4>బి. పునరుత్పాదక కాని వనరులు (Non-renewable Resources):</h4>
+        <ul>
+            <li>ఇవి పరిమిత నిల్వలు కలిగినవి.</li>
+            <li>ఒకసారి ఈ నిల్వలు తరిగిపోతే వీటిని పునరుద్ధరించడానికి లేదా తిరిగి ఏర్పడడానికి కొన్ని వేల సంవత్సరాలు పట్టవచ్చు.</li>
+            <li>ఇవి తిరిగి ఏర్పడడానికి పట్టేకాలం మానవ జీవిత కాలం కంటే చాలా ఎక్కువ.</li>
+            <li>అందుకే వీటిని పునరుత్పాదకం కాని వనరులుగా పేర్కొనవచ్చు.</li>
+            <li>బొగ్గు, పెట్రోలియం, సహజ వాయువు మొదలైనవి పునరుత్పాదకం కాని వనరులు.</li>
+            <li>భూభాగం, వాతావరణం, ఎత్తు వంటి అనేక భౌతిక అంశాల ఆధారంగా సహజ వనరులు విస్తరించి ఉన్నాయి.</li>
+            <li>భూమి యొక్క విస్తరణ విభిన్న ప్రాంతాలలో విభిన్నంగా ఉండడం వలన ఈ వనరుల యొక్క లభ్యత కూడా అన్ని ప్రాంతాలలో ఒకే విధంగా ఉండదు.</li>
+        </ul>
+
+        <h3>2.  మానవ నిర్మిత వనరులు (Man-made Resources)</h3>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1517089539392-79158e25016b?auto=format&fit=crop&w=800&q=80" alt="Bridges and Infrastructure">
+            <div class="image-caption">మానవ నిర్మిత వనరులకు ఉదాహరణగా నిలిచే ఆధునిక వంతెనలు మరియు భవనాలు</div>
+        </div>
+        <ul>
+            <li>కొన్ని సందర్భాలలో పదార్థాల యొక్క సహజరూపం మారినప్పుడే అవి వనరులుగా మారుతాయి.</li>
+            <li>ఉదాహరణకి ప్రజలు ఇనుప ధాతువు నుండి ఇనుమును సంగ్రహించడం నేర్చుకున్న తర్వాతే ఇనుము వనరుగా మారింది.</li>
+            <li>మానవ నిర్మిత వనరు అయిన ఇనుమును ఉపయోగించి ప్రజలు భవనాలు, వంతెనలు, రోడ్లు, యంత్రాలు, వాహనాలు వంటి వాటిని నిర్మిస్తారు.</li>
+            <li>అందుకే వీటిని మానవ నిర్మిత వనరులు అంటారు.</li>
+            <li>సాంకేతికత కూడా ఒక మానవ నిర్మిత వనరు.</li>
+            <li>మనం మానవ నిర్మిత వనరులను తయారు చేయడానికి సహజ వనరులను ఉపయోగిస్తాము.</li>
+        </ul>
+
+        <h3>3. మానవ వనరులు (Human Resources)</h3>
+        <ul>
+            <li>జ్ఞానము, నైపుణ్యము, సాంకేతిక పరిజ్ఞానము కలిగిన ప్రజలు మరెన్నో నూతన వనరులను సృష్టించడానికి ప్రకృతిని సమర్థవంతంగా ఉపయోగిస్తారు.</li>
+            <li>మానవ వనరు అనేది వ్యక్తుల సంఖ్య, సామర్థ్యాలను సూచిస్తుంది.</li>
+            <li>మానవులను ఒక వనరుగా పరిగణించడంపై భిన్నాభిప్రాయాలు ఉన్నప్పటికీ భౌతిక పదార్థాన్ని విలువైన వనరుగా మార్చడంలో మానవ నైపుణ్యాలు సహాయపడతాయనే వాస్తవాన్ని ఎవరూ కాదనలేరు.</li>
+            <li>మానవులు ఒక ప్రత్యేక వనరుగా పరిగణించబడతారు అనగా ప్రజలే మానవ వనరులు.</li>
+            <li>విద్య, ఆరోగ్యం ప్రజలను విలువైన వనరులుగా తయారు చేయడానికి సహాయపడతాయి.</li>
+            <li>ప్రజల నైపుణ్యాల నాణ్యతను మెరుగుపరచడం ద్వారా వారు మరిన్ని వనరులను సృష్టించగలిగేలా చేయడాన్ని <strong>మానవ వనరుల అభివృద్ధి (Human Resource Development)</strong> అంటారు.</li>
+        </ul>
+
+        <h2>వనరుల పరిరక్షణ & సుస్థిరాభివృద్ధి</h2>
+        <ul>
+            <li>వనరులను జాగ్రత్తగా ఉపయోగించుకుంటూ పునరుద్ధరించుకోవడానికి వాటికి సమయం ఇవ్వడాన్ని <strong>వనరుల పరిరక్షణ</strong> అంటారు.</li>
+            <li>ప్రస్తుత అవసరాలకు వనరులను ఉపయోగించుకోవడం, భవిష్యత్తు కోసం వాటిని సంరక్షించుకోవడంలో సమతుల్యతను పాటించడాన్ని <strong>సుస్థిరాభివృద్ధి (Sustainable Development)</strong> అంటారు.</li>
+            <li>భవిష్యత్తు తరాల అవసరాలను దృష్టిలో ఉంచుకుని, వనరులను జాగ్రత్తగా వినియోగించుకోవడం ద్వారా ప్రస్తుత అవసరాలను తీర్చుకోవడాన్ని సుస్థిర అభివృద్ధి అంటారు.</li>
+            <li>ప్రతి వ్యక్తి వస్తువుల వినియోగాన్ని తగ్గించుకుని, వస్తువుల పునఃవినియోగం, పునఃచక్రీయం (Recycle) ద్వారా తన వంతు సహకారాన్ని అందిస్తే సుస్థిర అభివృద్ధి సాధ్యమవుతుంది.</li>
+            <li>పునరుత్పాదక వనరుల యొక్క ఉపయోగాలు స్థిరమైనవి.</li>
+            <li>భూమి యొక్క జీవవైవిధ్యాన్ని సంరక్షించాలి.</li>
+            <li>సహజ పర్యావరణ వ్యవస్థకు జరిగే నష్టాన్ని తగ్గించాలి.</li>
+            <li>భూమి, నేల, నీరు, సహజ వృక్ష సంపద, వన్యప్రాణులు మొదలైనవి జాగ్రత్తగా వినియోగించాలి.</li>
+        </ul>
+
+        <h2>జీవన విధానాలు - వ్యత్యాసాలు</h2>
+        <ul>
+            <li>ప్రపంచంలో వేరువేరు ప్రాంతాలలో ఉన్నవారు వేరువేరు రకాలుగా జీవన విధానాలలో జీవిస్తున్నారు.</li>
+            <li>ఆయా ప్రాంతాలలో గల భూమి, నీరు, సహజ వృక్ష సంపద, జంతువులు, సాంకేతిక పరిజ్ఞాన వినియోగంలో తేడాలను బట్టి కుటుంబాల జీవన విధానంలో వ్యత్యాసాలు ఉంటాయి.</li>
+            <li>ఉదాహరణకు ఆఫ్రికాలో, టాంజానియా లో ఒక చిన్న గ్రామంలో నీరు తీసుకురావడానికి ఉదయాన్నే చాలా దూరం వెళ్లి తెచ్చుకుంటారు.</li>
+            <li>న్యూజిలాండ్ లో ఉండేవారు గొర్రెల పెంపకం చేసే కుటుంబాలు.</li>
+            <li>ప్రపంచంలోని 90 శాతం జనాభా కేవలం 30% భూభాగంలో నివసిస్తున్నారు.</li>
+            <li>మిగిలిన 70 శాతం భూభాగంలో తక్కువమంది నివసిస్తున్నారు లేదా అది నివాస యోగ్యంగా లేదు.</li>
+        </ul>
+
+    </div>
+
+    <footer>
+        &copy; 2026 వనరులు విద్యా పాఠ్యాంశం. సర్వ హక్కులూ సురక్షితం.
+    </footer>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>భూమి – నేల – నీరు – సహజ వృక్ష సంపద – వన్య ప్రాణులు</title>
+    <!-- Google Fonts: Mandali (తెలుగు) & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f7fafc;
+            --container-bg: #ffffff;
+            --text-color: #2d3748;
+            --heading-color: #1a202c;
+            --primary-color: #2b6cb0;
+            --accent-color: #319795;
+            --border-color: #e2e8f0;
+            --quote-bg: #edfdfd;
+            --quote-border: #319795;
+            --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            --toggle-bg: #cbd5e0;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121620;
+            --container-bg: #1a202c;
+            --text-color: #e2e8f0;
+            --heading-color: #f7fafc;
+            --primary-color: #63b3ed;
+            --accent-color: #4fd1c5;
+            --border-color: #2d3748;
+            --quote-bg: #1e2d3d;
+            --quote-border: #4fd1c5;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --toggle-bg: #4a5568;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+
+        body {
+            font-family: 'Mandali', 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+            font-size: 1.2rem;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--container-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Toggle Button */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 26px;
+            position: relative;
+            width: 48px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: var(--toggle-bg);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: white;
+            bottom: 3px;
+            content: "";
+            height: 20px;
+            left: 3px;
+            position: absolute;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 20px;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .mode-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        /* Container & Typography */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.2rem;
+            background-color: var(--container-bg);
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                margin: 1.5rem auto;
+                padding: 2.5rem;
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+            }
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.3rem;
+            margin-top: 1.8rem;
+            font-size: 1.45rem;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        h4 {
+            margin-top: 1.2rem;
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
+
+        p {
+            margin: 0.8rem 0;
+            text-align: justify;
+        }
+
+        /* Bullet Variations Classes */
+        ul.bullet-star, ul.bullet-check, ul.bullet-arrow, ul.bullet-dot {
+            padding-left: 1.2rem;
+            margin: 0.8rem 0;
+        }
+
+        ul.bullet-star li, ul.bullet-check li, ul.bullet-arrow li, ul.bullet-dot li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+
+        /* Star Bullet style (★) */
+        ul.bullet-star li::before {
+            content: "★";
+            color: #d69e2e;
+            font-size: 1rem;
+            position: absolute;
+            left: 0;
+            top: -1px;
+        }
+
+        /* Check Bullet style (✓) */
+        ul.bullet-check li::before {
+            content: "✓";
+            color: #38a169;
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: absolute;
+            left: 0;
+            top: -1px;
+        }
+
+        /* Arrow Bullet style (➔) */
+        ul.bullet-arrow li::before {
+            content: "➔";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1rem;
+            position: absolute;
+            left: 0;
+            top: -1px;
+        }
+
+        /* Custom Dot Bullet style (•) */
+        ul.bullet-dot li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Callout Box */
+        .highlight-box {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 1rem;
+            margin: 1.2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Image Optimization */
+        .image-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-top: 0.4rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            opacity: 0.8;
+            background-color: var(--container-bg);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>భూమి – నేల – నీరు – వృక్ష సంపద</h1>
+        <div class="theme-switch-wrapper">
+            <span class="mode-text"></span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <h2>భూమి (Land)</h2>
+        <ul class="bullet-star">
+            <li>భూమి అత్యంత ముఖ్యమైన సహజ వనరులలో ఒకటి.</li>
+            <li>ఇది భూమి ఉపరితలంపై మొత్తం వైశాల్యంలో 30% మాత్రమే.</li>
+            <li>ఈ కొద్ది శాతంలో కూడా అన్ని ప్రాంతాలు నివాసయోగ్యంగా లేవు.</li>
+            <li>భూమి వాతావరణాల విశిష్ట లక్షణాలలో గల తేడాల కారణంగా ప్రపంచంలోని విభిన్న భాగాలలో జనాభా విస్తరణ వివిధ రకాలుగా ఉంది.</li>
+            <li>కఠినమైన భూఆకృతి, పర్వతాలు, లోతట్టు ప్రాంతాలు, ఎడారులు, దట్టమైన అడవి ప్రాంతాలు సాధారణంగా తక్కువ జనాభా లేదా జనావాసాలు లేని ప్రాంతాలుగా ఉంటాయి.</li>
+            <li>మైదానాలు, నది లోయలు వ్యవసాయానికి అనుకూలమైన భూముల్ని కలిగి ఉండడం వలన ఈ ప్రాంతాలు ప్రపంచంలో అత్యధిక జనాభాను కలిగి ఉంటాయి.</li>
+        </ul>
+
+        <div class="image-container">
+            <img src="https://resorcio.com/_next/image?url=https%3A%2F%2Fd1xuqjt1wg0fxw.cloudfront.net%2Fb2b3d400-7453-11ec-bcf0-9d536767eed3.jpg&w=512&q=75" alt="Man-made Infrastructure on Land">
+            <div class="image-caption">భూ వినియోగం - రోడ్ల నిర్మాణం మరియు రవాణా సౌకర్యాలు</div>
+        </div>
+
+        <ul class="bullet-dot">
+            <li>భూమిని వ్యవసాయం, గనుల త్రవ్వకం, అడవుల పెంపకం, గృహ నిర్మాణం, రోడ్లు, పరిశ్రమల స్థాపన మొదలగు అనేక రకాల ప్రయోజనాల కోసం ఉపయోగించడాన్ని <strong>భూ వినియోగం</strong> అంటారు.</li>
+            <li>భూ వినియోగం భూఆకృతి, నేల, వాతావరణం, ఖనిజాలు, నీటిలభ్యత వంటి భౌతిక కారకాల ద్వారా నిర్ణయించబడుతుంది.</li>
+            <li>జనాభా, సాంకేతికత కూడా భూమి వినియోగాన్ని నిర్ణయించడంలో ప్రధాన పాత్ర పోషిస్తాయి.</li>
+            <li>భూమిని దాని యాజమాన్యం ఆధారంగా ప్రైవేటు భూమి, ప్రభుత్వ భూమి అని వర్గీకరించవచ్చు.</li>
+            <li>ప్రైవేటు భూమి వ్యక్తుల యాజమాన్యంలో ఉంటుంది.</li>
+            <li>ప్రభుత్వ భూమి ప్రజలందరి ఉమ్మడి అవసరాలకు ఉపయోగపడే విధంగా ప్రభుత్వ యాజమాన్యంలో ఉంటుంది.</li>
+            <li>గ్రామాలలో పశువుల మేత, పండ్లు, విత్తనాలు, ఔషధ మొక్కలు పెంచుకోవడం వంటివి... ఇలాంటి భూములను ప్రభుత్వ భూములు, ఉమ్మడి వనరులు అని కూడా పిలుస్తారు.</li>
+            <li>జనాభా మరియు వారి డిమాండ్లు పెరుగుతూ ఉన్నాయి కానీ భూమి లభ్యత పరిమితంగా ఉంది.</li>
+            <li>భూమి లభ్యత కూడా వేర్వేరు ప్రాంతాలలో వేర్వేరు రకాలుగా ఉంది.</li>
+            <li>భూములను పట్టణ ప్రాంతాలలో వాణిజ్య, గృహ సముదాయాలను నిర్మించడానికి, గ్రామీణ ప్రాంతాలలో వ్యవసాయ భూమిని విస్తరించడానికి ప్రజలు భూములను ఆక్రమించడం ప్రారంభించారు.</li>
+            <li>పెరుగుతున్న జనాభా, వారి అవసరాలు, అటవీ భూములు, వ్యవసాయ యోగ్యమైన భూముల విధ్వంసానికి కారణం అవుతున్నాయి.</li>
+            <li>ప్రస్తుతం భూ క్షీణత రేటును తగ్గించుకోవలసిన అవసరం ఏర్పడింది.</li>
+            <li>అడవుల పెంపకం, భూసేకరణ, రసాయన ఎరువులు, పురుగుమందుల వాడకాన్ని నియంత్రించడం, పశువులను అతిగా మేపడాన్ని తగ్గించడం మొదలగు చర్యలు చేపట్టి సంరక్షించుకోవచ్చు.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>శిలా శైథిల్యం:</strong> వాతావరణంలోని మార్పుల వలన జంతువులు, మొక్కలు, మానవ చర్యల ఫలితంగా రాళ్లు బలహీనమై పగిలిపోయి మట్టిగా మారే ప్రక్రియను శిలా శైథిల్యం అంటారు.</p>
+        </div>
+
+        <h2>నేలలు (Soils)</h2>
+        <div class="image-container">
+            <img src="https://www.australianenvironmentaleducation.com.au/wp-content/uploads/2020/02/Soil-Structure.jpg" alt="Layers of Soil">
+            <div class="image-caption">మృత్తిక లేదా నేల యొక్క విభిన్న పొరల నిర్మాణ చిత్రం</div>
+        </div>
+
+        <ul class="bullet-check">
+            <li>వీటిని <strong>మృత్తికలు</strong> అంటారు.</li>
+            <li>భూమి ఉపరితలంపై కప్పబడి ఉన్న సన్నటి మట్టి పొరను నేల అంటారు.</li>
+            <li>ఇది భూమితో దగ్గర సంబంధాన్ని కలిగి ఉంటుంది.</li>
+            <li>భూస్వరూపాలు నేల రకాలను నిర్ణయిస్తాయి.</li>
+            <li>నేలలు సేంద్రియ పదార్థాలు, ఖనిజాలు, రూపాంతర శిలల వలన ఏర్పడతాయి.</li>
+            <li>ఇది శిలా శైథిల్యం అనే ప్రక్రియ ద్వారా జరుగుతుంది.</li>
+            <li>సరైన మోతాదులో సేంద్రియ పదార్థాలు, ఖనిజాల కలయిక వలన సారవంతమైన నేలలు ఏర్పడతాయి.</li>
+            <li>ఒక సెంటీమీటర్ మృత్తిక తయారు కావడానికి కొన్ని వందల సంవత్సరాలు పడుతుంది.</li>
+            <li>భారతదేశంలో నల్ల మృత్తికలు, ఎర్రమృత్తికలు, లాటరైట్ మృత్తికలు, ఎడారి మృత్తికలు, పర్వత మృత్తికలు అనబడే మృత్తికా రకాలు ఉన్నాయి.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>కొండ చరియలు విరిగిపడడం (Landslides):</strong> భూమి నిటారుగా ఉన్న ప్రాంతాలలో రాళ్లు, మట్టి కలిసిన భాగాలు అకస్మాత్తుగా విరిగిపడడాన్ని కొండ చరియలు విరిగిపడడం అంటారు.</p>
+            <p style="margin-top: 0.5rem;">ఇవి తరచుగా భూకంపాలు, వరదలు, అగ్నిపర్వత విస్ఫోటనం సమయంలో ఏర్పడతాయి. దీర్ఘకాలం పాటు కురిసే వర్షపాతం వలన కూడా కొండ చరియలు విరిగిపడి, నదీ ప్రవాహాలను కొంత కాలం పాటు అడ్డుకుంటాయి. నదీ ప్రవాహాలు నిలిచిపోయినప్పుడు వాటికి దగ్గరగా ఉన్న లోతట్టు ప్రాంతాలలో వినాశనం సంభవించవచ్చు.</p>
+        </div>
+
+        <h3>కేస్ స్టడీ: పాంజి గ్రామం ప్రమాదం</h3>
+        <ul class="bullet-arrow">
+            <li>హిమాచల్ ప్రదేశ్ రాష్ట్రంలోని కిన్నౌర్ జిల్లాలో రికాంగ్ పియో సమీపంలోని పాంజి గ్రామంలో భారీ కొండ చరియలు విరిగిపడ్డాయి.</li>
+            <li>దీని వలన 200 మీటర్ల విస్తీర్ణం గల పాత హిందుస్తాన్ టిబెట్ రోడ్డు, 22వ నంబర్ జాతీయ రహదారి దెబ్బ తిన్నాయి.</li>
+        </ul>
+
+        <h3>నివారణ చర్యలు:</h3>
+        <ul class="bullet-check">
+            <li>ప్రమాదాలు గురయ్యే ప్రాంతాలను ముందుగానే గుర్తించి అక్కడ నివాస సముదాయాల నిర్మాణాన్ని నివారించాలి.</li>
+            <li>వాలుల నుండి నేలలు జారిపడే ప్రాంతాలలో వాటిని ఆపడానికి రక్షణ గోడలు నిర్మించాలి.</li>
+            <li>కొండ చరియలు విరిగిపడడాన్ని ఆపడానికి చెట్లను అధికంగా పెంచాలి. ఉపరితల నీటి ప్రవాహాలు నియంత్రించాలి.</li>
+        </ul>
+
+        <h3>మృత్తికలు ఏర్పడడానికి ప్రధాన కారణాలు:</h3>
+        <ul class="bullet-dot">
+            <li>ప్రధానంగా మాతృ శిలల స్వభావం, వాతావరణం, నేలలు ఏర్పడడానికి ప్రధాన కారకాలు.</li>
+            <li>స్థలాకృతి, సేంద్రియ పదార్థం, నేల ఏర్పడడానికి పట్టిన సమయం అనునవి ఇతర కారకాలు.</li>
+            <li>ఇవన్నీ ఒక ప్రదేశానికి, మరొక ప్రదేశానికి ఈ మధ్య భిన్నంగా ఉంటాయి.</li>
+            <li>మాతృశిల అనునది మృత్తిక యొక్క రంగు, రూపం, రసాయన లక్షణాలు, ఖనిజ పదార్థాలను నిర్ణయిస్తుంది.</li>
+            <li>వాతావరణం మృత్తిక యొక్క ఉష్ణోగ్రత, వర్షపాతం, శైథిల్య రేటును, హ్యూమస్ నిర్మాణాన్ని ప్రభావితం చేస్తుంది.</li>
+            <li>మృత్తిక లోని నేల పొర మందాన్ని కాలము నిర్ణయిస్తుంది.</li>
+            <li>మృత్తికపై ఉన్న వృక్ష, జంతు, జీవావరణం అనేది హ్యూమస్ ఏర్పడే రేటును ప్రభావితం చేస్తాయి.</li>
+            <li>ఎత్తు, వాలు అనేవి మృత్తిక ఏర్పాటును, భౌగోళిక స్వరూపాన్ని నిర్ణయిస్తాయి.</li>
+        </ul>
+
+        <h3>నేల క్షీణత (మృత్తిక క్రమക്ഷయం)</h3>
+        <ul class="bullet-star">
+            <li>మృత్తికా క్రమక్షయం లేదా నేల కోత అనునది మృత్తిక అనే సహజ వనరుకు గల ప్రధాన సమస్యలు.</li>
+            <li>మానవ, సహజ కారణాలు ఈ మృత్తిక క్షీణతకు దారి తీస్తాయి.</li>
+            <li>అడవుల నిర్మూలన, రసాయన ఎరువులు, క్రిమిసంహారక మందులను వాడడం, వర్షపు నీటి ప్రవాహము, కొండ చరియలు విరిగిపడడం, వరదలు వంటి వాటిని ఇందుకు ఉదాహరణలుగా చెప్పవచ్చు.</li>
+        </ul>
+
+        <h3>మృత్తిక లేదా నేల సంరక్షణ పద్ధతులు</h3>
+        <ul class="bullet-check">
+            <li><strong>మల్చింగ్ (Mulching):</strong> మొక్కల మధ్య గల ఖాళీ స్థలంలో సేంద్రియ పదార్థాలతో నిండిన పొడవైన గుండ్రని కట్టవలె ఉంటుంది. ఇది నేలలోని తేమను పట్టి ఉంచుతుంది.</li>
+            <li><strong>కాంటూరు బారియర్స్ (Contour Barriers):</strong> వాలు ప్రాంతాలలో రాళ్లు, గడ్డి, మట్టితో వరుసగా కట్టలు కడతారు. ఈ కట్టలకు ముందు భాగంలో నీటిని సేకరించడం కోసం కందకాలు తవ్వుతారు.</li>
+            <li><strong>రాక్ డ్యాం (Rock Dam):</strong> కొండ పై భాగం నుండి వచ్చే నీటి ప్రవాహ వేగాన్ని తగ్గించడానికి రాళ్లతో కడతారు. ఇది నష్ట తీవ్రతను తగ్గిస్తుంది.</li>
+            <li><strong>టెర్రస్ ఫార్మింగ్ (Terrace Farming):</strong> దీనిని సోపాన వ్యవసాయం అంటారు. పర్వతాల ప్రాంతాలలో వెడల్పైన మెట్టు ఆకారంలో నేలను చదును చేసి పంటలు పండిస్తారు. ఇది ఉపరితల నీటి ప్రవాహాన్ని, నేల కోతను నిвариస్తుంది.</li>
+            <li><strong>అంతర పంటలు (Intercropping):</strong> ఈ విధానంలో భిన్న రకాల పంటలను ఒకేసారి వేరువేరు వరుసలో సాగు చేస్తారు. ఇది నీటి ప్రవాహాలకు నేల కొట్టుకుపోకుండా కాపాడుతుంది.</li>
+            <li><strong>షెల్టర్ బెల్ట్స్ (Shelter Belts):</strong> తీరప్రాంత పొడి ప్రాంతాలలో గాలి తీవ్రతను తగ్గించి తద్వారా నేలల సంరక్షణ కోసం మొక్కలను వరుసగా గట్లపై పెంచుతారు.</li>
+        </ul>
+
+        <h2>నీరు (Water)</h2>
+        <ul class="bullet-star">
+            <li>నీరు ఒక ముఖ్యమైన పునరుత్పాదక సహజ వనరు.</li>
+            <li>భూమి ఉపరితలంపై నాలుగు వంతులలో మూడు వంతులు నీటిచే కప్పబడి ఉంది. అందువల్లనే భూమిని 'నీటి గ్రహం' అంటారు.</li>
+            <li>దాదాపు 350 మిలియన్ సంవత్సరాలకు పూర్వమే మహాసముద్రాల నుండి జీవం ఉద్భవించింది.</li>
+            <li>ఈనాటికీ మహాసముద్రాలు భూమిపై మూడింట రెండు వంతులు ఆక్రమించి అనేక రకాల మొక్కలు, జంతువులకు ఆధారంగా ఉన్నాయి.</li>
+            <li>సముద్ర జలం ఉప్పుగా ఉండడం వలన మానవ వినియోగానికి అనుకూలంగా లేదు.</li>
+            <li>మంచి నీరు భూమిపై 2.7 శాతం మాత్రమే ఉంది.</li>
+            <li>ఈ మంచి నీటిలో దాదాపు 70% అంటార్కిటికా, గ్రీన్‌ల్యాండ్ పర్వత ప్రాంతాలలో మంచు పలకలు, హిమనీనదాల రూపంలో ఉంది. ఆయా భౌగోళిక परिस्थितियों వల్ల ఇది మనకు అందుబాటులో లేదు.</li>
+            <li>కేవలం 1 శాతం మంచి నీరు మాత్రమే మానవ వినియోగానికి అందుబాటులో ఉంది. ఇది భూగర్భ జలాలు, నదులు, సరస్సులు, వాతావరణంలో నీటి ఆవిరి రూపంలో ఉంది.</li>
+        </ul>
+
+        <div class="image-container">
+            <img src="https://cdn1.byjus.com/wp-content/uploads/2023/05/Rainwater-harvesting-1.png" alt="Rainwater Harvesting Diagram">
+            <div class="image-caption">ఇంటి పైకప్పు ద్వారా వర్షపు నీటిని సేకరించి నిల్వ చేసే పద్ధతి</div>
+        </div>
+
+        <ul class="bullet-dot">
+            <li><strong>నీటి వినియోగ గణాంకాలు:</strong>
+                <ul class="bullet-arrow">
+                    <li>1975 వ సంవత్సరంలో ఒక మనిషి యొక్క సగటు నీటి వినియోగం సంవత్సరానికి 3850 cu km.</li>
+                    <li>2000 సంవత్సరం నాటికి ఒక మనిషి యొక్క సగటు నీటి వినియోగం సంవత్సరానికి 6000 cu km గా పెరిగింది.</li>
+                    <li>బొట్టు బొట్టుగా కారే ఒక నీటి కొళాయి వలన సంవత్సరానికి 1200 లీటర్ల నీరు వృథా అవుతుంది.</li>
+                </ul>
+            </li>
+            <li>భూమిపై గల నీరు బాష్పీభవనము, అవపాతము, ఉపరితల ప్రవాహము అనే ప్రక్రియ ద్వారా తిరిగి భూమిని చేరుకుంటూ ఉంటుంది. దీనిని <strong>నీటి చక్రం (Water Cycle)</strong> అంటారు.</li>
+            <li>మానవులు తాగడానికి, బట్టలు ఉతకడానికి మాత్రమే కాకుండా వ్యవసాయం, పరిశ్రమలు, విద్యుత్ ఉత్పత్తి మొదలగు ప్రక్రియలలో భాగంగా నీటిని ఎక్కువగా ఉపయోగిస్తారు.</li>
+            <li><strong>సౌరాష్ట్ర (అమ్రేలి) కేస్ స్టడీ:</strong> సౌరాష్ట్ర ప్రాంతంలోని అమ్రేలిలో ఉన్న 1.25 లక్షల జనాభా దాదాపు అంతా దగ్గరలోని తాలూకా కేంద్రాలలోని నీటి మార్కెట్ల నుండే నీటిని కొనుగోలు చేస్తారు.</li>
+            <li>ప్రపంచంలో అనేక ప్రాంతాలలో మంచి నీటి కొరత ఉంది. ఆఫ్రికా, పశ్చిమ ఆసియా, దక్షిణ ఆసియా, పశ్చిమ అమెరికా వాయువ్య ప్రాంతాలు, మెక్సికో, దక్షిణ అమెరికాలో కొంత భాగం, ఆస్ట్రేలియాలు మంచినీటి తీవ్ర కొరతను ఎదుర్కొంటున్నాయి.</li>
+            <li>నీరు పునరుత్పాదకమైనదే అయినప్పటికీ మితిమీరిన వినియోగం, కలుషితం చేయడం వల్ల అది పనికిరాకుండా పోతోంది.</li>
+            <li>మురుగునీటి సక్రమ నిర్వహణ లేకపోవడం, వ్యవసాయం, పరిశ్రమల నుండి వచ్చే క్షారాలు, రసాయనాలు నీటిని కలుషితం చేసే ప్రధాన కారణాలు.</li>
+            <li>నైట్రేట్లతో, లోహాలతో, పురుగు మందులతో నీరు కలుషితమవుతోంది. ఈ రసాయనాలు జీవ సంబంధ వ్యర్థాలు కావు (నశించవు).</li>
+            <li>పరిశ్రమల వ్యర్థాలను నదుల్లోకి వదలకుండా ముందుగానే శుద్ధి చేయడం వల్ల నీటి కాలుష్యాన్ని అరికట్టవచ్చు. యమునా నది మురుగునీరు, పారిశ్రామిక వ్యర్థాల వల్ల తీవ్రంగా కలుషితమవుతోంది.</li>
+        </ul>
+
+        <h3>నీటి పొదుపు మార్గాలు:</h3>
+        <ul class="bullet-check">
+            <li>అడవులు, ఇతర వృక్ష సంపద పెంచడం వల్ల ఉపరితల ప్రవాహ వేగం తగ్గి భూగర్భ జలాలు పెరుగుతాయి.</li>
+            <li>నీటిని నిల్వ చేయడం అంటే ఉపరితల నీటి ప్రవాహాన్ని పొదుపు చేయడమే.</li>
+            <li>వ్యవసాయ కాలువల సరైన నిర్వహణ ద్వారా నీటి వృథాను అరికట్టవచ్చు.</li>
+            <li><strong>బిందు సేద్యం (Drip Irrigation):</strong> దీని ద్వారా నీరు ఆవిరైపోవడం, ఇంకిపోవడం తగ్గుతుంది. ఎండ తీవ్రత వల్ల నీరు త్వరగా ఆవిరయ్యే పొడి ప్రాంతాలలో ఇది చాలా ఉపయోగకరంగా ఉంటుంది.</li>
+            <li><strong>వర్షపు నీటి నిల్వ (Rainwater Harvesting):</strong> ఇంటి పైకప్పు నుండి పడే వర్షపు నీటిని పైపుల ద్వారా సేకరించి నిల్వ చేయవచ్చు. రెండు గంటల పాటు కురిసే సగటు వర్షం ద్వారా దాదాపు 8000 లీటర్ల నీటిని ఆదా చేయవచ్చు.</li>
+        </ul>
+
+        <h2>సహజ వృక్ష సంపద, వన్య ప్రాణులు</h2>
+        <div class="image-container">
+            <img src="https://www.azolifesciences.com/images/Article_Images/ImageForArticle_714_16449362895935733.jpg" alt="Wildlife and Nature Conservation">
+            <div class="image-caption">భూగోళం పై జీవవైవిధ్యం మరియు వన్యప్రాణుల సహజీవనం</div>
+        </div>
+
+        <ul class="bullet-star">
+            <li>సహజ వృక్ష సంపద, వన్యప్రాణులు అన్నీ శిలావరణం, జలావరణం, వాతావరణం కలిసి ఉన్న <strong>జీవావరణం (Biosphere)</strong> లో భాగంగా ఉంటాయి.</li>
+            <li>జీవావరణంలోని ప్రాణులన్నీ పరస్పరం సంబంధం కలిగి ఒకదానిపై ఒకటి ఆధారపడి జీవిస్తాయి. దీనినే <strong>పర్యావరణ వ్యవస్థ (Ecosystem)</strong> అంటారు.</li>
+            <li>వృక్షాలు మనకు కలపను ఇస్తాయి, జంతువులకు ఆశ్రయం కల్పిస్తాయి మరియు భూగర్భ జలాల నిల్వకు తోడ్పడతాయి.</li>
+            <li>జంతువులు, పక్షులు, కీటకాలు, జలచరాలు అన్నీ వన్యప్రాణుల కిందికే వస్తాయి.</li>
+            <li>రాబందుల వంటి పక్షులు చనిపోయిన జంతువుల కళేబరాలను తిని పర్యావరణాన్ని శుద్ధి చేసే సహజ శానిటరీ వర్కర్లుగా పనిచేస్తాయి.</li>
+            <li>వన్యప్రాణులు చిన్నవైనా, పెద్దవైనా పర్యావరణ సమతుల్యత కాపాడటంలో కీలక పాత్ర పోషిస్తాయి.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>రాబందుల రక్షణ అంశం:</strong> మనదేశంలో పశువులకు నొప్పి నివారణకు వాడే 'డైక్లో ఫెనాక్' (ఆస్పిరిన్ లేదా ఐ బూప్రొఫెన్) అనే మందు వల్ల, అవి చనిపోయినప్పుడు వాటి కళేబరాలను తిన్న రాబందులు కిడ్నీ వ్యాధులకు గురై చనిపోతున్నాయి. పశువులకు ఈ మందు వాడకాన్ని రద్దు చేయడం ద్వారా రాబందులను కాపాడుకోవచ్చు.</p>
+        </div>
+
+        <h3>వృక్ష సంపద విస్తరణ:</h3>
+        <ul class="bullet-arrow">
+            <li>వృక్ష సంపద ప్రధానంగా ఉష్ణోగ్రత, తేమపై ఆధారపడి ఉంటుంది.</li>
+            <li>ప్రపంచవ్యాప్తంగా వృక్ష సంపదను అడవులు, గడ్డి భూములు, పొదలు, తుండ్రాలుగా వర్గీకరించవచ్చు.</li>
+            <li>వర్షపాతం ఎక్కువగా ఉండే ప్రాంతాలలో దట్టమైన అడవులు పెరుగుతాయి.</li>
+            <li>మధ్యస్థంగా వర్షపాతం ఉండే ప్రాంతాలలో పొట్టి వృక్షాలు, గడ్డి భూములు ఉంటాయి.</li>
+            <li>వర్షపాతం చాలా తక్కువగా ఉండే పొడి ఎడారి ప్రాంతాలలో ముళ్ల పొదలు పెరుగుతాయి.</li>
+            <li>ధ్రువ ప్రాంత శీతల పరిస్థితులలో కేవలం లైకెన్లు, నాచు వంటి తుండ్ర వృక్షాలు మాత్రమే పెరుగుతాయి.</li>
+        </ul>
+
+        <h3>వన్యప్రాణుల సంరక్షణ:</h3>
+        <ul class="bullet-check">
+            <li>అడవులు మన జాతీయ సంపద.</li>
+            <li>ప్రస్తుతం పులి, సింహం, ఏనుగు, కృష్ణజింక, కాండ్ర, ఖడ్గమృగం, నెమలి, ఆస్ట్రిచ్ వంటి వన్యప్రాణులు అంతరించిపోయే దశలో ఉన్నాయి.</li>
+            <li>ప్రజలలో అవగాహన కల్పించి వన్యప్రాణులను కాపాడడం మనందరి బాధ్యత.</li>
+            <li>జాతీయ పార్కులు, వన్యప్రాణి అభయారణ్యాలు, బయోస్పియర్ రిజర్వుల ఏర్పాటు ద్వారా సహజసిద్ధ వృక్షాలు, జంతువులను రక్షించవచ్చు.</li>
+            <li>భారతదేశంలో పులులు, సింహాలు, కృష్ణ జింకలు, నెమళ్లను వేటాడడం లేదా చంపడం చట్టరీత్యా నేరం.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>బయోస్పియర్ రిజర్వ్ (Biosphere Reserve):</strong> ప్రస్తుతం ఉన్న మరియు భవిష్యత్తు తరాల కోసం ఒకటి లేదా అంతకన్నా ఎక్కువ పర్యావరణ వ్యవస్థలను కాపాడడం కోసం సహజసిద్ధంగా ఏర్పాటు చేయబడిన రక్షిత ప్రాంతం.</p>
+        </div>
+
+        <h3>అంతర్జాతీయ ఒప్పందం: CITES</h3>
+        <ul class="bullet-dot">
+            <li>CITES (కన్వెన్షన్ ఆన్ ఇంటర్నేషనల్ ట్రేడ్ ఇన్ ఎండేంజ్డ్ స్పీసిస్) అనేది అంతరించిపోతున్న వృక్ష, జంతు జాతుల రక్షణ కోసం ప్రపంచ దేశాల మధ్య జరిగిన అంతర్జాతీయ ఒప్పందం.</li>
+            <li>వన్యప్రాణులు, వృక్షాల అంతర్జాతీయ వాణిజ్యం (ఎగుమతి, దిగుమతి) వల్ల వాటి మనుగడకు ఎటువంటి ప్రమాదం కలగకూడదనేది దీని ప్రధాన ఉద్దేశం.</li>
+            <li>ఈ ఒప్పందం ద్వారా దాదాపు 5000 వన్యప్రాణుల రకాలను, 28,000 వృక్షజాతులను రక్షించడం జరుగుతోంది.</li>
+        </ul>
+
+    </div>
+
+    <footer>
+        &copy; 2026 భూమి – నేల – నీరు – సహజ వృక్ష సంపద – వన్య ప్రాణులు.
+    </footer>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+</html>

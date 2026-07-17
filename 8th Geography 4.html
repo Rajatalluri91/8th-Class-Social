@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>వ్యవసాయం - పాఠం (Toggle Switch)</title>
+    <!-- Importing Telugu Mandali Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --header-bg: linear-gradient(135deg, #059669, #10b981);
+            --header-text: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            
+            /* Distinct colors for text items */
+            --color-red: #dc2626;
+            --color-blue: #2563eb;
+            --color-orange: #d97706;
+            --color-purple: #7c3aed;
+            --color-teal: #0d9488;
+            --color-pink: #db2777;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --header-bg: linear-gradient(135deg, #065f46, #047857);
+            --header-text: #f8fafc;
+            
+            --color-red: #f87171;
+            --color-blue: #60a5fa;
+            --color-orange: #fbbf24;
+            --color-purple: #a78bfa;
+            --color-teal: #2dd4bf;
+            --color-pink: #f472b6;
+        }
+
+        body {
+            font-family: 'Mandali', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6;
+            font-size: 1.15rem;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 15px 15px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.0rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+			text-align: left;
+        }
+
+        .subtitle {
+            margin-top: 4px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Toggle Switch Styling */
+        .theme-switch-wrapper {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            transition: .3s;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "☀️";
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 18px;
+            width: 18px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        input:checked + .slider {
+            background-color: #047857;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+            content: "🌙";
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-left: 5px solid #059669;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-1px);
+        }
+
+        h2 {
+            color: #059669;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 6px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        ul {
+            padding-left: 15px;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        li::before {
+            content: "🔹";
+            position: absolute;
+            left: -15px;
+            font-size: 0.85rem;
+        }
+
+        /* Pure text color variations */
+        .tc-red { color: var(--color-red); font-weight: bold; }
+        .tc-blue { color: var(--color-blue); font-weight: bold; }
+        .tc-orange { color: var(--color-orange); font-weight: bold; }
+        .tc-purple { color: var(--color-purple); font-weight: bold; }
+        .tc-teal { color: var(--color-teal); font-weight: bold; }
+        .tc-pink { color: var(--color-pink); font-weight: bold; }
+
+        .image-container {
+            text-align: center;
+            margin: 12px 0 4px 0;
+            padding: 8px;
+            background: rgba(0,0,0,0.02);
+            border-radius: 6px;
+            border: 1px dashed var(--border-color);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px var(--shadow-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-top: 1px solid var(--border-color);
+            margin-top: 25px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <header>
+        <h1>🌱 వ్యవసాయం - సమగ్ర పాఠ్యాంశం</h1>
+        
+        
+        <!-- Toggle Switch HTML -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" onclick="toggleTheme()" />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Section 1 -->
+        <div class="card">
+            <h2>🌾 వ్యవసాయం - పరిచయం & రకాలు</h2>
+            <ul>
+                <li>మొక్కల నుండి ఉపయోగపడే ఉత్పత్తులు వస్తువుగా రూపాంతరం చెందడానికి <span class="tc-blue">మూడు ఆర్థిక కార్యకలాపాలు</span> దోహదం చేస్తాయి. అవి: <span class="tc-red">ప్రాథమిక</span>, <span class="tc-orange">మాధ్యమిక</span>, <span class="tc-purple">తృతీయా కార్యకలాపాలు</span></li>
+                <li><span class="tc-red">ప్రాథమిక కార్యకలాపాలు:</span> సహజ వనరులను వెలికి తీయడం, ఉత్పత్తి చేయడము, వ్యవసాయము, చేపల పట్టడం సేకరణ వంటివి ఉదాహరణలు.</li>
+                <li><span class="tc-orange">ద్వితీయ కార్యకలాపం:</span> సహజ వనరులను ఉపయోగపడే విధంగా మలచడమే ద్వితీయ కార్యకలాపం.</li>
+                <li>ఉక్కు తయారీ, రొట్టెల తయారీ, చేనేత వస్త్ర తయారీ మొదలగు వాటిని ద్వితీయ కార్యాపరంగానికి ఉదాహరణగా చెప్పవచ్చు.</li>
+                <li><span class="tc-purple">తృతీయా రంగం:</span> ప్రాథమిక, ద్వితీయ రంగాలకు సేవల ద్వారా ప్రోత్సాహాన్ని అందించేది తృతీయా రంగం (ఉదా: రవాణా, వ్యాపారం, బ్యాంకింగ్, బీమా, ప్రకటనలు).</li>
+                <li>వ్యవసాయం <span class="tc-blue">ప్రాథమిక రంగానికి</span> చెందినది. పంటలు, పండ్లు, కూరగాయలు పెంచడం, పూల ఉత్పత్తి, పశుపోషణ వ్యవసాయంలో భాగమే.</li>
+                <li>ప్రపంచంలో <span class="tc-teal">50 శాతం</span> మంది వ్యవసాయ కార్యకలాపాలను నిర్వహిస్తున్నారు; భారతదేశంలో <span class="tc-teal">మూడింట రెండు వంతుల జనాభా</span> ఇప్పటికీ వ్యవసాయంపై ఆధారపడి ఉన్నారు.</li>
+                <li><span class="tc-pink">అగ్రికల్చర్</span> అనే పదం లాటిన్ పదాలు <span class="tc-blue">అగర్</span> లేదా <span class="tc-blue">అగ్రి</span> (అనగా నేల) మరియు <span class="tc-blue">కల్చర్</span> (అనగా సాగు) అనే పదాల నుంచి వచ్చింది.</li>
+                <li><span class="tc-red">సెరికల్చర్</span>: పట్టుపురుగుల పెంపకం | <span class="tc-orange">పిసికల్చర్</span>: చేపల పెంపకం | <span class="tc-purple">విటికల్చర్</span>: ద్రాక్ష తోటల పెంపకం | <span class="tc-teal">హార్టికల్చర్</span>: పండ్లు, పూలు, కూరగాయల వాణిజ్య పెంపకం.</li>
+                <li>సాగు చేయడానికి విత్తనాలు, ఎరువులు, యంత్రాలు, శ్రమ అనేది ప్రధాన ఉపకరణాలు; పొలం దున్నడం, విత్తనాలు నాటడం, నీటిపారుదల, కలుపు తీయడం, పంట కోయడం, నూర్పుడి వంటివి వ్యవసాయ ప్రక్రియలు.</li>
+            </ul>
+            <div class="image-container">
+                <img src="image_863dea.png" alt="వ్యవసాయం మొదటి భాగం చిత్రం">
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="card">
+            <h2>🌿 జీవనాధార & విస్తాపన వ్యవసాయం</h2>
+            <ul>
+                <li>పంటలు, పాలు, ఊలు, కోట్లు వంటివి ప్రధాన ఉత్పత్తిదకాలు.</li>
+                <li>భౌగోళిక పరిస్థితులు, ఉత్పత్తులు, గిరాకీ, కార్మికుల లభ్యత, సాంకేతిక స్థాయిలను అనుసరించి వ్యవసాయాన్ని రెండు రకాలుగా వర్గీకరించవచ్చు: <span class="tc-blue">1. జీవనాధార వ్యవసాయం</span>, <span class="tc-orange">2. వాణిజ్య వ్యవసాయం</span>.</li>
+                <li><span class="tc-blue">జీవనాధార వ్యవసాయం:</span> రైతు తన కుటుంబ అవసరాలను తీర్చడానికి ఈ రకమైన వ్యవసాయం చేస్తాడు. సంప్రదాయంగా తక్కువ సాంకేతికత, కుటుంబ సభ్యుల శ్రమ మాత్రమే ఉంటుంది.</li>
+                <li>జీవనాధార వ్యవసాయాన్ని కేంద్రీకృత జీవనోపాధి, సాంద్ర జీవనాధార వ్యవసాయంగా వర్గీకరించవచ్చు.</li>
+                <li>దక్షిణ, ఆగ్నేయ, తూర్పు ఆసియాలోని రుతుపవన అధిక జనసాంద్రత కలిగిన ప్రాంతాలలో <span class="tc-purple">సాంద్ర జీవనాధార వ్యవసాయం</span> అమల్లో ఉంది (వరి ప్రధాన పంట).</li>
+                <li><span class="tc-teal">సేంద్రియ వ్యవసాయం:</span> రసాయనాలకు బదులుగా సేంద్రియ ఎరువులు, సహజ పురుగుమందులను ఉపయోగిస్తారు; ఇందులో పంట దిగుబడిని పెంచేందుకు జన్యు మార్పిడి చేయరు.</li>
+                <li><span class="tc-pink">విస్తాపన వ్యవసాయం:</span> అమెజాన్ నది బేసిన్, ఉష్ణ మండల ఆఫ్రికా, ఆగ్నేయాసియా, ఈశాన్య భారతదేశంలోని దట్టమైన అటవీ ప్రాంతాలలో కొనసాగిస్తారు.</li>
+                <li>విస్తాపన వ్యవసాయం పేర్లు: ఈశాన్య భారతదేశంలో <span class="tc-red">జూమ్మింగ్</span>, మెక్సికోలో <span class="tc-orange">మిల్పా</span>, బ్రెజిల్లో <span class="tc-purple">రోకా</span>, మలేషియాలో <span class="tc-teal">లేడాంగ్</span>.</li>
+            </ul>
+            <div class="image-container">
+                <img src="image_869cbe.png" alt="జీవనాధార వ్యవసాయం చిత్రం">
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="card">
+            <h2>🐫 సంచార పశువుల పెంపకం & వాణిజ్య వ్యవసాయం</h2>
+            <ul>
+                <li>విస్తాపన వ్యవసాయంలో చెట్లను నరికి తగలబెట్టే విధానాన్ని <span class="tc-blue">స్లాష్ అండ్ బర్న్ వ్యవసాయం</span> (స్లాష్ అనగా బూడిద, బర్న్ అనగా కాల్చుట) అంటారు. నేల సారం కోల్పోయాక కొత్త కమతానికి మారుతారు.</li>
+                <li><span class="tc-orange">సంచార పశువుల పెంపకం:</span> సహారా ఎడారి, మధ్య ఆసియా, రాజస్థాన్, జమ్మూ కాశ్మీర్ వంటి శుష్క/పాక్షిక శుష్క ప్రాంతాలలో పశువుల కాపరులు జంతువులతో (గొర్రెలు, ఒంటెలు, మేకలు, యాక్) ఒకచోట నుండి మరొక చోటికి వెళ్తారు.</li>
+                <li><span class="tc-purple">వాణిజ్య వ్యవసాయం:</span> పంటలు, జంతువులను మార్కెట్లో అమ్మేందుకు భారీ పెట్టుబడి, విస్తీర్ణంతో యంత్రాల సహాయంతో చేసే వ్యవసాయం.</li>
+                <li>వాణిజ్య వ్యవసాయ రకాలు: <span class="tc-blue">వాణిజ్య ధాన్య వ్యవసాయం</span>, <span class="tc-teal">మిశ్రమ వ్యవసాయం</span>, <span class="tc-pink">తోటల వ్యవసాయం</span>.</li>
+                <li><span class="tc-teal">మిశ్రమ వ్యవసాయం:</span> ఆహార ఉత్పత్తి, పశువుల మేత పండించడానికి, పశువుల పెంపకానికి భూమిని ఉపయోగిస్తారు (యూరప్, తూర్పు అమెరికా, అర్జెంటీనా, ఆగ్నేయ ఆస్ట్రేలియా, న్యూజిలాండ్, దక్షిణ ఆఫ్రికా).</li>
+            </ul>
+            <div class="image-container">
+                <img src="image_86a07e.png" alt="వాణిజ్య వ్యవసాయం చిత్రం">
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="card">
+            <h2>🍵 తోటలు & ప్రధాన ఆహార పంటలు (వరి, గోధుమ)</h2>
+            <ul>
+                <li><span class="tc-pink">తోటల వ్యవసాయం:</span> టీ, కాఫీ, చెరుకు, జీడి, రబ్బరు, అరటి, పత్తి వంటి ఏకవిధ పంటల సాగు; వీటికి అధిక పెట్టుబడి, శ్రమ, రవాణా సౌకర్యాలు తప్పనిసరి.</li>
+                <li><span class="tc-blue">వరి:</span> ఉష్ణ, ఉప ఉష్ణ మండల ప్రాంతాల ప్రధాన ఆహారం; అధిక ఉష్ణోగ్రత, తేమ, నీటిని నిల్వ ఉంచుకునే ఒండ్రు/బంక నేలలు అవసరం. వరి ఉత్పత్తిలో <span class="tc-red">చైనా ప్రథమ స్థానంలో</span> ఉంది.</li>
+                <li><span class="tc-orange">గోధుమ:</span> మితమైన ఉష్ణోగ్రత, వర్షపాతం, నూర్పిడి సమయంలో ఎండ అవసరం. లోమ్ నేల (ఇసుకతో కూడిన బంకమట్టి) లో బాగా పండుతుంది. భారతదేశంలో గోధుమలను <span class="tc-purple">శీతాకాలంలో</span> పండిస్తారు.</li>
+                <li><span class="tc-teal">చిరుధాన్యాలు (మతకధాన్యాలు):</span> తక్కువ సారవంతమైన ఇసుక నేలల్లో, తక్కువ వర్షపాతంలో పండే పంటలు (జొన్నలు, సజ్జలు, రాగులు).</li>
+            </ul>
+            <div class="image-container">
+                <img src="image_86a382.png" alt="ప్రధాన పంటలు చిత్రం">
+            </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="card">
+            <h2>🌽 మొక్కజొన్న, ప్రత్తి, జనపనార, కాఫీ & తేయాకు</h2>
+            <ul>
+                <li><span class="tc-blue">మొక్కజొన్న:</span> మధ్యస్థ ఉష్ణోగ్రత, వర్షపాతం, ఎక్కువ సూర్యరశ్శి, సారవంతమైన నీటిపారుదల నేలలు అవసరం.</li>
+                <li><span class="tc-orange">ప్రత్తి:</span> అధిక ఉష్ణోగ్రత, తేలికపాటి వర్షపాతం, <span class="tc-red">210 మంచు కురవని రోజులు</span>, మంచి సూర్యరశ్శి అవసరం. నల్లరేగడి, ఒండ్రు నేలల్లో పెరుగుతుంది (వస్త్ర పరిశ్రమకు ప్రధాన ముడిసరుకు).</li>
+                <li><span class="tc-purple">జనపనార (<span class="tc-teal">బంగారు పీచు</span>):</span> ఒండ్రు మట్టిలో, అధిక ఉష్ణోగ్రత, వర్షపాతం, తేమతో కూడిన వాతావరణంలో పండుతుంది (భారతదేశం, బంగ్లాదేశ్ అగ్రగామి).</li>
+                <li><span class="tc-pink">కాఫీ:</span> చరిత్ర - క్రిశ 850 లో 'కాల్డీ' అనే మేకల కాపారి ద్వారా వెలుగులోకి వచ్చింది. వెచ్చని తడి వాతావరణం, లోమ్ నేల, కొండవాలు ప్రాంతాలు అనుకూలం. ఉత్పత్తిలో <span class="tc-red">బ్రెజిల్ ప్రథమం</span>.</li>
+                <li><span class="tc-teal">తేయాకు:</span> ఏడాది పొడవునా చల్లని వాతావరణం, అత్యధిక వర్షపాతం, మృదువైన వాలు గల లోమ్ నేలలు అవసరం (కెన్యా, భారతదేశం, చైనా, శ్రీలంక ప్రసిద్ధి).</li>
+            </ul>
+            <div class="image-container">
+                <img src="image_86a402.png" alt="మొక్కజొన్న, ప్రత్తి, కాఫీ చిత్రం">
+            </div>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="card">
+            <h2>🚜 వ్యవసాయ క్షేత్రాలు: భారతదేశం vs అమెరికా</h2>
+            <ul>
+                <li>అధిక జనాభా గల అభివృద్ధి చెందుతున్న దేశాలు <span class="tc-blue">సాంద్ర వ్యవసాయాన్ని</span> (చిన్న భూకమతాలు) చేస్తాయి. అమెరికా, కెనడా, ఆస్ట్రేలియాలలో పెద్ద భూకమతాలు వాణిజ్య వ్యవసాయానికి అనుకూలంగా ఉంటాయి.</li>
+                <li><span class="tc-orange">భారతదేశం (ఉదాహరణ):</span> ఉత్తరప్రదేశ్ లోని ఘాజీపూర్ జిల్లా ఆదిలాబాద్ గ్రామంలో మున్నాలాల్ అనే చిన్న రైతుకు <span class="tc-red">1.5 హెక్టార్ల</span> భూమి ఉంది.</li>
+                <li><span class="tc-purple">అమెరికా (ఉదాహరణ):</span> అమెరికాలో ఒక సాధారణ ఫారం పరిమాణం దాదాపు <span class="tc-red">250 నుండి 300 హెక్టార్లు</span> ఉంటుంది (ఉదా: అయోవా రాష్ట్రంలో జోహోర్ అనే రైతుకు 300 హెక్టార్లు ఉంది). రైతు ఫారంలోనే నివసిస్తాడు.</li>
+                <li>ఉపయోగించే ఆధునిక యంత్రాలు: విత్తనాలు విత్తే యంత్రం - <span class="tc-teal">సీడ్ డ్రిల్</span>, నూర్పుడి యంత్రం - <span class="tc-pink">త్రెషర్</span>.</li>
+            </ul>
+            <div class="image-container">
+                <img src="image_86a709.png" alt="వ్యవసాయ క్షేత్రాలు చిత్రం">
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 వ్యవసాయం పాఠ్యాంశం | అన్ని హక్కులు భద్రపరచబడినవి 🌟</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            if (body.getAttribute("data-theme") === "light") {
+                body.setAttribute("data-theme", "dark");
+            } else {
+                body.setAttribute("data-theme", "light");
+            }
+        }
+    </script>
+</body>
+</html>

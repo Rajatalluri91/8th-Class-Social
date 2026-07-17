@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>పరిశ్రమలు - 8వ తరగతి</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9fbfd;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+            --primary-color: #023e8a;
+            --secondary-color: #0077b6;
+            --accent-color: #90e0ef;
+            --border-color: #dee2e6;
+            --header-bg: linear-gradient(135deg, #03045e, #023e8a);
+            --header-text: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --callout-bg: #e0fbfc;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --primary-color: #48cae4;
+            --secondary-color: #00b4d8;
+            --accent-color: #03045e;
+            --border-color: #333333;
+            --header-bg: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+            --header-text: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --callout-bg: #1b263b;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 30px 20px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+			height:100px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+			
+        }
+		h1{
+		padding-bottom:150px;
+		}
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Mandali', sans-serif;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 20px;
+            font-size: 1.4rem;
+        }
+
+        p, li {
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .callout {
+            background: var(--callout-bg);
+            border-left: 5px solid var(--primary-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .img-caption {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        [data-theme="dark"] .img-caption {
+            color: #aaa;
+        }
+
+        .formula-box {
+            background: var(--callout-bg);
+            border: 2px dashed var(--secondary-color);
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+            <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
+        </button>
+        <h1>4. పరిశ్రమలు</h1>
+        
+    </header>
+
+    <div class="container">
+
+        <!-- Intro Section -->
+        <section>
+            <h2>పరిచయం</h2>
+            <div class="callout">
+                <strong>కృత్యం:</strong> పొలంలో పండే పత్తి నుండి మీ ఇంటిలోని అలమరకు మీ చొక్కా చేరే వరకు ఉన్న వివిధ దశలను తెలుసుకోండి.
+            </div>
+            
+            <p>మీరు రాయటానికి ఉపయోగించే నోటుపుస్తకం తయారీ వెనుక గల ఉత్పాదక ప్రక్రియ గురించి మీరెప్పుడైనా ఆలోచించారా? నోటుపుస్తకం పుట్టుక చెట్టుతో మొదలు అవుతుంది. దానిని నరికి మిల్లుకు తరలిస్తారు. అక్కడ ఆ చెట్ల కలపను వివిధ ప్రక్రియల ద్వారా గుజ్జుగా మారుస్తారు. అందులో రసాయనాలను కలిపి యంత్రాల ద్వారా కాగితంగా మారుస్తారు.</p>
+            
+            <div class="img-container">
+                <img src="https://i.pinimg.com/1200x/4e/5e/52/4e5e52cba68fd4bffb3430b6ab151378.jpg" alt="వెదురు చెట్లు - కాగితపు తయారీ ముడి పదార్థం">
+                <div class="img-caption">కాగితపు తయారీకి ఉపయోగించే ముడి పదార్థం (వెదురు/కలప)</div>
+            </div>
+
+            <p>అనంతరం ఈ కాగితం ముద్రణాలయానికి వెళ్తుంది. అక్కడ రసాయనాలతో తయారు చేసిన సిరాతో పేజీలపై గీతలను ముద్రిస్తారు. ఆ కాగితాలను నోటుపుస్తకంగా తయారు చేసి అమ్మకం కొరకు మార్కెట్కు పంపుతారు. అలా ఇది మీ చేతికి వచ్చింది.</p>
+            
+            <p>ముడిపదార్థాలను ద్వితీయ కార్యకలాపాలు లేదా తయారీ ప్రక్రియ ద్వారా ప్రజలకొరకు అధికవిలువ కలిగిన ఉత్పత్తులుగా మారుస్తారు. మీరు చూసినట్లుగా గుజ్జును కాగితంగా, కాగితాన్ని నోటుపుస్తకంగా మార్చారు. ఇవి తయారీ ప్రక్రియలో గల రెండు దశలను సూచిస్తాయి.</p>
+            
+            <p>గుజ్జుతో తయారుచేసిన కాగితం, పత్తితో తయారుచేసిన వస్త్రం ఉత్పత్తి ప్రక్రియలోని ప్రతీ దశలోనూ అదనపు విలువను పొందుతాయి. ఈ విధంగా పూర్తిగా తయారైన వస్తువు దానిని తయారుచేయడానికి ఉపయోగించిన ముడిపదార్థం కంటే అధిక విలువను, ప్రయోజనాన్ని పొందుతుంది.</p>
+            
+            <p><strong>పరిశ్రమ</strong> అనేది ఖనిజాల వెలికితీత, వస్తువుల ఉత్పత్తి లేదా సేవలను అందించే ఆర్థిక కార్యకలాపాలను సూచిస్తుంది. ఈ విధంగా ఇనుము-ఉక్కు పరిశ్రమ వస్తువుల ఉత్పత్తికి, బొగ్గుగనుల పరిశ్రమ బొగ్గును వెలికితీసేందుకు, పర్యాటక పరిశ్రమ సేవలను అందించడానికి సంబంధించినవి.</p>
+        </section>
+
+        <!-- Classification Section -->
+        <section>
+            <h2>పరిశ్రమల వర్గీకరణ</h2>
+            <p>పరిశ్రమలను ముడిపదార్థాలు, పరిమాణం, వాటి యాజమాన్యం ఆధారంగా వర్గీకరిస్తారు.</p>
+
+            <h3>1. ముడి పదార్థాలు</h3>
+            <p>ఉపయోగించే ముడిపదార్థాలను బట్టి పరిశ్రమలను వ్యవసాయాధారిత, ఖనిజాధారిత, సముద్రాధారిత, అటవీఆధారితమైనవిగా చెప్పవచ్చు.</p>
+            <ul>
+                <li><strong>వ్యవసాయాధారిత పరిశ్రమలు:</strong> మొక్కలు, జంతు ఉత్పత్తులను ముడిపదార్థాలుగా ఉపయోగిస్తారు. ఉదాహరణకు: ఆహారోత్పత్తులు, కూరగాయలు, నూనె, పత్తి వస్త్రాలు, పాల ఉత్పత్తులు, తోళ్ళ పరిశ్రమలు.</li>
+                <li><strong>ఖనిజాధారిత పరిశ్రమలు:</strong> ఖనిజ ధాతువును ముడి పదార్ధంగా ఉపయోగించే ప్రాథమిక పరిశ్రమలు. ఇనుప ధాతువు నుండి ఇనుమును సంగ్రహించి, భారీ యంత్రాలు, నిర్మాణ సామాగ్రి తయారీకి ఉపయోగిస్తారు.</li>
+                <li><strong>సముద్ర ఆధారిత పరిశ్రమలు:</strong> మహాసముద్రాలు, సముద్రాల నుండి లభించే ఉత్పత్తులను (సముద్ర ఆహార శుద్ధి, చేపనూనె) ముడి పదార్థాలుగా ఉపయోగిస్తారు.</li>
+                <li><strong>అటవీ ఆధారిత పరిశ్రమలు:</strong> అటవీ ఉత్పత్తులను ముడి సరుకుగా ఉపయోగిస్తాయి. కలప ఆధారిత కాగితపు పరిశ్రమ, ఔషధ రసాయనాలు, గృహోపకరణాల పరిశ్రమలు వీటికి ఉదాహరణ.</li>
+            </ul>
+
+            <div class="img-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dairy_farm_cows.jpg/640px-Dairy_farm_cows.jpg" alt="పాల పరిశ్రమ">
+                <div class="img-caption">వ్యవసాయ / పాడి ఆధారిత పరిశ్రమలకు ఉదాహరణ</div>
+            </div>
+
+            <h3>2. పరిమాణం</h3>
+            <p>పెట్టుబడి మూలధనాన్ని, ఉపాధి పొందిన వ్యక్తుల సంఖ్యను, ఉత్పత్తి పరిమాణాన్ని బట్టి పరిశ్రమలను చిన్న తరహా, భారీ పరిశ్రమలుగా విభజిస్తారు.</p>
+            <ul>
+                <li><strong>కుటీర పరిశ్రమలు:</strong> చేతి వృత్తులవారు స్వయంగా తయారుచేస్తారు (ఉదా: బుట్టలు అల్లడం, కుండలు చేయడం).</li>
+                <li><strong>చిన్న తరహా పరిశ్రమలు:</strong> తక్కువ మూలధనం, సాంకేతికత (ఉదా: పట్టు వస్త్ర పరిశ్రమ, ఆహార శుద్ధి).</li>
+                <li><strong>భారీ పరిశ్రమలు:</strong> ఎక్కువ మూలధనం, ఎక్కువ సాంకేతికత అవసరం (ఉదా: ఆటోమొబైల్స్, భారీ యంత్ర పరికరాలు).</li>
+            </ul>
+
+            <h3>3. యాజమాన్యం</h3>
+            <ul>
+                <li><strong>ప్రయివేటు రంగం:</strong> ఒక వ్యక్తి లేదా వ్యక్తుల సమూహం ఆధ్వర్యంలో నిర్వహించబడతాయి.</li>
+                <li><strong>ప్రభుత్వ రంగం (పబ్లిక్):</strong> ప్రభుత్వ ఆధీనంలో నిర్వహించబడతాయి (ఉదా: హిందుస్తాన్ ఏరోనాటిక్స్ లిమిటెడ్, స్టీల్ అథారిటీ ఆఫ్ ఇండియా).</li>
+                <li><strong>ఉమ్మడి రంగం:</strong> ప్రభుత్వంతో పాటు వ్యక్తుల సమూహం యాజమాన్యంలో ఉంటుంది (ఉదా: మారుతీ ఉద్యోగ్ లిమిటెడ్).</li>
+                <li><strong>సహకార రంగం:</strong> ముడిసరుకు ఉత్పత్తిదారులు లేదా కార్మికుల యాజమాన్యంలో ఉంటుంది (ఉదా: ఆనంద్ మిల్క్ యూనియన్ లిమిటెడ్ - అమూల్, సుధా డైరీ).</li>
+            </ul>
+        </section>
+
+        <!-- Factors & System Section -->
+        <section>
+            <h2>పరిశ్రమల స్థాపనను ప్రభావితం చేసే అంశాలు</h2>
+            <p>ముడిపదార్థాల లభ్యత, భూమి, నీరు, కార్మికులు, విద్యుత్, మూలధనం, రవాణా, మార్కెట్ లభ్యత మొదలైనవి పరిశ్రమల స్థాపనను ప్రభావితం చేస్తాయి. కొన్నిసార్లు ప్రభుత్వం అందించే ప్రోత్సాహకాల వల్ల వెనుకబడిన ప్రాంతాలలో కూడా పరిశ్రమలు ఏర్పాటవుతాయి. పారిశ్రామికీకరణ పట్టణాల, నగరాల అభివృద్ధికి దారితీస్తుంది.</p>
+
+            <div class="img-container">
+                <img src="https://i.pinimg.com/736x/a4/26/eb/a426ebaf57166c916c36500c0d8e4a03.jpg" alt="పారిశ్రామిక వ్యవస్థ">
+                <div class="img-caption">పారిశ్రామిక వ్యవస్థ మరియు కర్మాగారాలు</div>
+            </div>
+
+            <h3>పారిశ్రామిక వ్యవస్థ (Industrial System)</h3>
+            <p>ఒక పారిశ్రామిక వ్యవస్థలో ముడిపదార్ధాలు, ఉత్పాదక ప్రక్రియలు, ఉత్పత్తులు చోటుచేసుకుంటాయి. ఉత్పాదకతలో ముడిపదార్ధాలు, కార్మికులు, భూమి వెల, రవాణా, విద్యుత్ ఉంటాయి. ఉదాహరణకు వస్త్ర పరిశ్రమలో పత్తి ముడిసరుకు కాగా, నూలు వడకడం, నేయడం, అద్దకం ప్రక్రియలు జరిగి తుది ఉత్పత్తిగా 'చొక్కా' తయారవుతుంది.</p>
+        </section>
+
+        <!-- Industrial Regions & Disasters -->
+        <section>
+            <h2>పారిశ్రామిక ప్రాంతాలు మరియు విపత్తులు</h2>
+            <p>ప్రపంచంలో ప్రధాన పారిశ్రామిక ప్రాంతాలుగా ఈశాన్య అమెరికా, పశ్చిమ అమెరికా, మధ్య యూరప్, తూర్పు యూరోప్, తూర్పు ఆసియాలు ఉన్నాయి. భారతదేశంలో ముంబై-పూణే క్లస్టర్, బెంగుళూరు-తమిళనాడు, హుగ్లీ ప్రాంతం, అహ్మదాబాద్-బరోడా, ఛోటా నాగపూర్, గుర్గావ్-డిల్లీ-మీరట్ మొదలైనవి ముఖ్యమైనవి.</p>
+
+            <h3>పారిశ్రామిక విపత్తులు</h3>
+            <p>సాంకేతిక వైఫల్యం లేదా ప్రమాదకర పదార్థాల బాధ్యతారాహిత్య వినియోగం వల్ల పారిశ్రామిక ప్రమాదங்கள் సంభవిస్తాయి.</p>
+            <ul>
+                <li><strong>భోపాల్ దుర్ఘటన:</strong> డిసెంబర్ 3, 1984న భోపాల్‌లోని యూనియన్ కార్బెడ్ పురుగుమందుల కర్మాగారంలో జరిగిన ప్రమాదంలో అత్యంత విషపూరితమైన 'మిథైల్ ఐసో సైనైడ్' (MIC) వాయువు వెలువడి వేలాది మంది ప్రాణాలు కోల్పోయారు.</li>
+                <li><strong>చైనా గ్యాస్ బావి పేలుడు:</strong> డిసెంబర్ 23, 2005న చైనాలోని చాంగ్ కింగ్ రాష్ట్రంలో జరిగిన గ్యాస్ బావి పేలుడులో 243 మంది మరణించారు.</li>
+            </ul>
+
+            <div class="callout">
+                <strong>ప్రమాద నివారణ చర్యలు:</strong>
+                <ol>
+                    <li>జనసాంద్రత ఎక్కువగా ఉన్న నివాస ప్రాంతాలకు దూరంగా పరిశ్రమలు ఉండాలి.</li>
+                    <li>ప్రమాదకర పదార్థాల నిల్వలు, వాటి ప్రభావంపై స్థానికులకు అవగాహన ఉండాలి.</li>
+                    <li>అగ్ని ప్రమాద హెచ్చరిక, అగ్నిమాపక వ్యవస్థను మెరుగుపరచాలి.</li>
+                    <li>కాలుష్య నియంత్రణ చర్యలు కచ్చితంగా పాటించాలి.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Iron & Steel Industry Section -->
+        <section>
+            <h2>ఇనుము-ఉక్కు పరిశ్రమ (Iron and Steel Industry)</h2>
+            <p>ఇనుము-ఉక్కు పరిశ్రమ ఇతర పరిశ్రమలకు అవసరమైన ముడి పదార్థాలను సరఫరా చేస్తుంది కాబట్టి దీనిని <strong>ఆధునిక పరిశ్రమకు వెన్నెముక</strong> అంటారు.</p>
+            
+            <div class="formula-box">
+                8 టన్నుల బొగ్గు + 4 టన్నుల ఇనుపధాతువు + 1 టన్ను సున్నపురాయి = 1 టన్ను స్టీల్ (ఉక్కు)
+            </div>
+
+            <div class="img-container">
+                <img src="https://i.pinimg.com/736x/c6/94/a3/c694a3d1febb311c51b75ff0a077bed9.jpg" alt="ఇనుప కొలిమి నిర్మాణం">
+                <div class="img-caption">ఇనుప ఖనిజం కరిగించు కొలిమి (Blast Furnace) విధానం</div>
+            </div>
+
+            <p>ఇనుప ధాతువును ఇనుప కొలిమిలో బొగ్గు, సున్నపురాయితో కలిపి కరిగించి, శుద్ధి చేయడం ద్వారా ఉక్కును తయారు చేస్తారు. అల్యూమినియం, నిఖిల్, రాగి వంటి లోహాలను కలపడం ద్వారా ఉక్కుకు గట్టిదనం మరియు తుప్పును నిరోధించే సామర్థ్యం వస్తుంది.</p>
+
+            <h3>జంషెడ్పూర్ (TISCO)</h3>
+            <p>భారతదేశంలో తొలి ఉక్కు కర్మాగారమైన టాటా ఐరన్ అండ్ స్టీల్ కంపెనీ (TISCO) 1907 సంవత్సరంలో జార్ఖండ్‌లోని సువర్ణరేఖ, ఖార్కె నదుల సంగమానికి సమీపంలో సక్చి (ప్రస్తుత జంషెడ్పూర్) వద్ద స్థాపించబడింది. బొగ్గు, ఇనుప ధాతువు, నీటి వనరులు మరియు రైలు మార్గాలకు దగ్గరగా ఉండటం వల్ల ఇది అత్యంత అనుకూలమైన కేంద్రంగా మారింది.</p>
+
+            <h3>పిట్స్ బర్గ్ (USA)</h3>
+            <p>అమెరికాలోని ముఖ్యమైన ఉక్కు నగరం పిట్స్ బర్గ్. ఇక్కడ స్థానికంగా బొగ్గు లభిస్తుండగా, మిన్నెసోటా గనుల నుండి ఇనుప ధాతువును 'గ్రేట్ లేక్స్' జలమార్గం ద్వారా రవాణా చేస్తారు.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 8వ తరగతి సాంఘిక శాస్త్రం - పరిశ్రమలు అధ్యాయం</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+            }
+        }
+    </script>
+</body>
+</html>
