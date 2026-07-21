@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="te" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8వ తరగతి - చరిత్ర - పాఠం 4: గిరిజనులు, దికూలు - ఒక స్వర్ణ యుగ వీక్షణ</title>
+    <!-- Telugu Mandali Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+            --header-bg: #1e3d59;
+            --header-text: #ffffff;
+            --accent-color: #17b978;
+            --border-color: #e1e8ed;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --blockquote-bg: #e8f4f8;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --header-bg: #1f4068;
+            --header-text: #ffffff;
+            --accent-color: #4ecca3;
+            --border-color: #333333;
+            --shadow: 0 4px 6px rgba(0,0,0,0.5);
+            --blockquote-bg: #1a2634;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 26px;
+            line-height: 1.4;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 26px;
+            color: var(--header-text);
+            padding: 5px 10px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 24px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin: 15px 0 10px 0;
+            color: var(--header-bg);
+        }
+
+        [data-theme="dark"] h3 {
+            color: #64ffda;
+        }
+
+        p, li {
+            margin-bottom: 12px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .img-container {
+            text-align: center;
+            background: var(--bg-color);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            max-height: 220px;
+            object-fit: cover;
+        }
+
+        .caption {
+            font-size: 15px;
+            margin-top: 8px;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        blockquote {
+            background-color: var(--blockquote-bg);
+            border-left: 5px solid var(--accent-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            text-align: right;
+        }
+
+        th {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        [data-theme="dark"] tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>4: గిరిజనులు, దికూలు - ఒక స్వర్ణ యుగ వీక్షణ</h1>
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Theme Toggle">🌓</button>
+        </header>
+
+        <!-- Section 1: Intro & Lifestyles -->
+        <div class="card">
+            <h2>1. గిరిజనులు ఎలా జీవించారు? (19వ శతాబ్దం నాటి పరిస్థితులు)</h2>
+            <p>పంతొమ్మిదవ శతాబ్దం నాటికి భారతదేశంలోని వివిధ ప్రాంతాలలోని గిరిజనులు వివిధ రకాల ఆర్థిక కార్యకలాపాలు చేపట్టారు.</p>
+            
+            <div class="image-gallery">
+                <div class="img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' fill='%23ccc'><rect width='300' height='200'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23666' font-size='16'>ఝూమ్ సాగు (విస్తాపన వ్యవసాయం)</text></svg>" alt="Jhum Cultivation">
+                    <div class="caption"> చిత్రం 1: అడవులలో ఝూమ్ సాగు దృశ్యం</div>
+                </div>
+                <div class="img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' fill='%23ccc'><rect width='300' height='200'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23666' font-size='16'>అటవీ ఉత్పత్తుల సేకరణ</text></svg>" alt="Forest Collection">
+                    <div class="caption"> చిత్రం 2: అటవీ ఉత్పత్తుల సేకరణ మరియు వేట</div>
+                </div>
+            </div>
+
+            <h3>1. ఝూమ్ సాగుదారులు (విస్తాపన వ్యవసాయం)</h3>
+            <ul>
+                <li>కొందరు గిరిజనులు అడవులలోని చిన్న చిన్న భూకమతాలలో ఝూమ్ (విస్తాపన వ్యవసాయం) సాగును అవలంబించారు.</li>
+                <li>సూర్యరశ్మి నేలను చేరడానికి వీలుగా చెట్ల పైభాగాలను కొట్టేసి, వృక్షాలను కాల్చి, భూమిని వ్యవసాయానికి అనుకూలంగా మార్చేవారు.</li>
+                <li>వృక్షాలను కాల్చడం ద్వారా వచ్చిన బూడిదలోని <strong>'పొటాష్'</strong> నేలను సారవంతం చేయడానికి తోడ్పడుతుంది.</li>
+                <li>చెట్లు నరకడానికి గొడ్డలి, నేలను తవ్వడానికి పారను ఉపయోగించి నేలను సాగుకు అనుకూలంగా మార్చేవారు. భూమిని దున్నకుండా విత్తనాలను చెల్లాచెదురుగా (వెదజల్లేవారు) వేసేవారు.</li>
+                <li>ఒకసారి పంట కోసిన తరువాత దానిని కొన్ని సంవత్సరాల పాటు <strong>'బీడు భూమి'</strong>గా (కొంతకాలం సాగు చేయకుండా వదిలిన భూమి, దీనివల్ల భూమి కోల్పోయిన సారాన్ని తిరిగి పొందుతుంది) వదిలి వేరే క్షేత్రానికి వెళ్లేవారు.</li>
+                <li>ఈశాన్య, మధ్య భారతదేశంలోని కొండ, అటవీ ప్రాంతాలలో విస్తాపన సాగుదారులు నివసించేవారు.</li>
+            </ul>
+
+            <h3>2. వేటగాళ్లుగా మరియు సేకరణదారులుగా కొందరు</h3>
+            <ul>
+                <li>చాలా ప్రాంతాలలో గిరిజనులు జంతువులను వేటాడటం, అటవీ ఉత్పత్తులు సేకరించడం ద్వారా జీవించేవారు. ఒరిస్సా అడవులలో నివసించే ఖోండులు (డొంగ్రియ కంధా మహిళలు) అలాంటి గిరిజనులే.</li>
+                <li>వారు సామూహిక వేటకు వెళ్ళి దొరికిన మాంసాన్ని అందరూ పంచుకునేవారు.</li>
+                <li><strong>సాల్</strong>, <strong>మహువా</strong> (తినడానికి లేదా మద్యం తయారీలో ఉపయోగించే ఒక పువ్వు) వృక్షాల విత్తనాల నుండి తీసిన నూనెతో ఆహారం వండుకునేవారు.</li>
+                <li>పండానస్ చెట్ల ఆకులు, అటవీ మొక్కలు, మూలికలను ఔషధ ప్రయోజనాల కోసం వాడేవారు. స్థానికంగా ఉత్పత్తి కాని వస్తువులను పొందడానికి వస్తుమార్పిడి పద్ధతిలో లేదా తమ వద్ద ఉన్న కొద్దిపాటి సంపాదనతో వస్తువులు కొనుక్కునేవారు.</li>
+                <li>మధ్య భారతదేశంలో కనిపించే <strong>'బైగాలు'</strong> లాంటి వారు ఇతరుల వద్ద పనిచేయడానికి ఇష్టపడేవారు కాదు; శ్రామికునిగా మారడం తమ స్థాయిని తగ్గిస్తుందని భావించారు.</li>
+                <li>మార్కెట్ మరియు వాణిజ్యం గిరిజనులకు అప్పు, పేదరికాన్ని తెచ్చిపెట్టడంతో, వడ్డీ వ్యాపారిని, వర్తకుడిని దుష్ట స్థానికేతరులుగా <strong>(దికూలుగా)</strong> భావించి తీవ్రంగా వ్యతిరేకించారు.</li>
+            </ul>
+
+            <h3>3. పశువుల కాపరులుగా కొందరు</h3>
+            <ul>
+                <li>పశుగ్రాసం తరిగిపోయినపుడు పశువుల మందలతో ఒక ప్రాంతం నుంచి ఇంకొక ప్రాంతానికి తరలివెళ్లేవారు.</li>
+                <li>పంజాబ్ కొండల్లో <strong>వాన్ గుజ్జర్లు</strong>, ఆంధ్రప్రదేశ్‌లో <strong>లంబాడీలు</strong> ఆవులను మేపేవారు. కులూ ప్రాంతానికి చెందిన <strong>గద్దీలు</strong> (గొర్రెల కాపరులు), కాశ్మీర్‌కు చెందిన <strong>బకర్వాలాలు</strong> (మేకల కాపరులు) జీవనం సాగించారు.</li>
+            </ul>
+        </div>
+
+        <!-- Section 2: Verrier Elwin & Crop Calendar Table -->
+        <div class="card">
+            <h2>2. మధ్య భారతదేశ బైగాల పంట చక్రం (వెరియర్ ఎల్విన్ పరిశీలన)</h2>
+            <p>1930, 1940లలో మధ్య భారతదేశంలోని బైగాలు, ఖోండుల మధ్య గడిపిన బ్రిటీషు మానవ శాస్త్రవేత్త <strong>వెరియర్ ఎల్విన్</strong> ఈ కాలమానం (క్యాలెండరు), పని విభజన గురించి స్పష్టమైన సమాచారం అందించారు.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>హిందూ నెల</th>
+                        <th>చేపట్టే ప్రధాన పనులు</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>చైత్ (చైత్రం)</strong></td>
+                        <td>స్త్రీలు కోసిన పంట దుబ్బులు తొలగించేవారు; పురుషులు పెద్ద చెట్లు నరికి, సంప్రదాయ వేటకు వెళ్లేవారు.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>బైశాఖ్ (వైశాఖం)</strong></td>
+                        <td>అడవిని కాల్చేవారు; కాలిన కలపను స్త్రీలు తెచ్చి దహనం చేసేవారు.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>జేత్ (జ్యేష్టం)</strong></td>
+                        <td>విత్తడం ప్రారంభించేవారు; వేట కొనసాగేది.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ఆషాడ్ నుండి భాదన్</strong></td>
+                        <td>పురుషులు పొలాల్లో పనుల్లో నిమగ్నమయ్యేవారు.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>కౌర్ & కార్తీక్</strong></td>
+                        <td>కౌర్ నెలలో బీన్స్ మొదటి పండ్లు, కార్తీక్‌లో కుత్కి ధాన్యం పక్వానికి వచ్చేవి.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>అఘాన్ & పుష్</strong></td>
+                        <td>అఘాన్‌లో పంట కోతలు జరిగేవి; పుష్ మాసంలో తూర్పార పట్టడం, పండుగలు, నృత్యాలు జరిగేవి.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>మాగ్ (మాఘం)</strong></td>
+                        <td>కొత్త బెవార్లకు (సాగు భూములకు) మళ్లేవారు; వేట మరియు సేకరణ ప్రధానమైంది.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                "ఈ ఆంగ్లేయుల భూమిలో బ్రతకడం ఎంత కష్టమో / గ్రామంలో భూస్వామి కూర్చున్నాడు, గుమ్మం దగ్గర కొత్వాల్ కూర్చున్నాడు / తోటలో పట్వారీ కూర్చున్నాడు, భూమిక్షేత్రంలో ప్రభుత్వం కూర్చొన్నది... పశువుల పన్ను కట్టాలంటే ఆవును అమ్మాలి, అటవీ పన్ను కట్టాలంటే గేదెను అమ్మాలి, భూమి పన్ను కట్టాలంటే ఎద్దును అమ్మాలి, మా ఆహారాన్ని మేము ఎలా పొందాలి." - <strong>బైగాల పాట (వెరియర్ ఎల్విన్, Songs of Maikal)</strong>
+            </blockquote>
+        </div>
+
+        <!-- Section 3: British Policies & Forest Laws -->
+        <div class="card">
+            <h2>3. బ్రిటీషు పాలన - అటవీ చట్టాలు & వాటి ప్రభావం</h2>
+            <ul>
+                <li>సంచార జీవనం గడుపుతున్న ప్రజలకంటే స్థిర జీవనం గడుపుతున్న రైతాంగాన్ని నియంత్రించడం సులభమని బ్రిటీషర్లు భావించారు.</li>
+                <li>భూమి కొలతలు, శిస్తు పద్ధతులు ప్రవేశపెట్టి భూయజమానులను, కౌలుదారులను ప్రకటించారు.</li>
+                <li>అడవులపై నియంత్రణ సాధించి వాటిని ప్రభుత్వ ఆస్తిగా ప్రకటించారు. రక్షిత అడవులలో సంచరించడం, వేటాడటం, వ్యవసాయం చేయడం నిషేధించారు.</li>
+                <li>రైల్వే స్లీపర్ల (రైల్వే లైనులు వేయడంలో వాడే అడ్డ చెక్క పలకలు) కోసం చెట్లను నరకడానికి కూలీల అవసరం పడి, అటవీ గ్రామాలను ఏర్పాటు చేసి చౌకగా శ్రామికులను పొందారు.</li>
+                <li>అటవీ చట్టాలకు వ్యతిరేకంగా <strong>1906లో అస్సాంలో సొంగ్రామ్ సంగ్మా తిరుగుబాటు</strong>, 1930లలో మధ్య పరగణాలలో <strong>అటవీ సత్యాగ్రహం</strong> జరిగాయి.</li>
+            </ul>
+        </div>
+
+        <!-- Section 4: Trade, Silk Cultivation, and Mines -->
+        <div class="card">
+            <h2>4. వర్తకం, పట్టు సాగు మరియు గనుల శ్రమ</h2>
+            <ul>
+                <li>జార్ఖండ్‌లోని హజరీభాగ్ ప్రాంతంలో సంతాలులు పట్టు గూళ్లను పెంచేవారు.</li>
+                <li>1,000 పట్టు గూళ్లకు కేవలం 3 నుండి 4 రూపాయలు ఇచ్చి, వాటిని బర్ద్వాన్ లేదా గయకు ఎగుమతి చేసి ఐదు రెట్లు ఎక్కువ ధరకు మధ్యవర్తులు అమ్ముకున్నారు. దీనివల్ల పట్టు సాగుదారులు చాలా తక్కువగా సంపాదించి నష్టపోయారు.</li>
+                <li>1920లలో బీహార్‌లోని <strong>ఝరియా, రాణిగంజ్ బొగ్గు గనులలో</strong> (ఇక్కడ దాదాపు 50% మంది గిరిజనులు పనిచేశారు, వేలాది మంది చనిపోయేవారు) మరియు అస్సాం తేయాకు తోటలలో గిరిజనులను అత్యంత దయనీయమైన వేతనాలతో కూలీలుగా నియమించారు.</li>
+            </ul>
+        </div>
+
+        <!-- Section 5: Tribal Revolts & Birsa Munda -->
+        <div class="card">
+            <h2>5. గిరిజన తిరుగుబాట్లు మరియు బిర్సా ముండా ఉద్యమం</h2>
+            <p>అణచివేతను, దోపిడీని ఎదిరిస్తూ గిరిజనులు వివిధ కాలాల్లో ప్రముఖ తిరుగుబాట్లు చేశారు:</p>
+            <ul>
+                <li><strong>1831-32:</strong> కోలుల తిరుగుబాటు</li>
+                <li><strong>1855:</strong> సంతాలుల తిరుగుబాటు</li>
+                <li><strong>1910:</strong> బస్తరు తిరుగుబాటు</li>
+                <li><strong>1940:</strong> మహారాష్ట్రలో వర్లీల తిరుగుబాటు</li>
+            </ul>
+
+            <h3>బిర్సా ముండా & ముల్క్ కి లడాయ్ (స్వర్ణ యుగ ఉద్యమం)</h3>
+            <ul>
+                <li>1870 మధ్య కాలంలో జన్మించిన బిర్సా ముండా, బోహెండా అడవుల చుట్టూ గొర్రెలు మేపుతూ పెరిగాడు.</li>
+                <li>ముండాలు స్వేచ్ఛగా, నిజాయితీగా గడిపిన <strong>"స్వర్ణ యుగం" (సత్యయుగం</strong> - కరకట్టలు నిర్మించడం, సహజ నీటి బుగ్గలు, చెట్లు నాటడం) గురించి ప్రచారం చేశాడు.</li>
+                <li>గిరిజన సమాజాన్ని సంస్కరించాలని (మద్యపానం వదిలేయడం, గ్రామాన్ని శుభ్రంగా ఉంచడం, మంత్ర విద్యలు మానేయడం) కోరాడు.</li>
+                <li>మిషనరీలను, హిందూ భూస్వాములను, వడ్డీ వ్యాపారులను, మరియు బ్రిటీష్ ప్రభుత్వాన్ని (<strong>దికూలు మరియు ఐరోపా వారు</strong>) తరిమికొట్టి ముండా రాజ్యాన్ని స్థాపించాలన్నది అతని ముఖ్య లక్ష్యం.</li>
+                <li>1895లో అరెస్ట్ అయి, 1897లో విడుదలైన తర్వాత రక్షకభట నిలయాలు, చర్చిలపై దాడి చేసి తెల్ల జెండాను ఎగురవేశారు.</li>
+                <li>1900లో బిర్సా కలరా వ్యాధితో మరణించినప్పటికీ, ఈ ఉద్యమం ఆదివాసీల భూమిని దికూలు స్వాధీనం చేసుకోలేని విధంగా చట్టాలు వచ్చేలా వలస ప్రభుత్వాన్ని ప్రోత్సహించింది.</li>
+            </ul>
+
+            <blockquote>
+                "అయ్యో! వెట్టి చాకిరీ క్రింద నా భుజాల నుండి రక్తం చిమ్ముతోంది / జమిందారుల దూతలు పగలు-రాత్రి నన్ను వేధిస్తారు, విసిగిస్తారు-పగలు రాత్రి నేను రోదిస్తాను / అయ్యో! ఇదీ నా పరిస్థితి / నాకు ఇల్లు లేదు, సంతోషాన్ని నేనెక్కడ నుండి పొందేది అయ్యో!" - <strong>ముండాల వెట్టి చాకిరీ పాట</strong>
+            </blockquote>
+        </div>
+
+        <!-- Section 6: Papua New Guinea Song (End of Lesson) -->
+        <div class="card">
+            <h2>6. ముగింపు - గిరిజనుల నిరసన పాట</h2>
+            <p>పాఠం చివరిలో పేర్కొన్న పాపువ న్యూ గినియా గిరిజనుల పాట వారి నిరసనను తెలుపుతుంది:</p>
+            <blockquote>
+                "మేమంటాము నగదుని, అసంతృప్తినిచ్చే చెత్తని, ఇది వర్షించడాన్ని ఆపలేదు / అది నన్ను బాధిస్తుంది / కాబట్టి నేనెందుకు నా శ్రమశక్తిని ధారపోయాలి కొబ్బరి చెట్ల మీద ఈ ప్రభుత్వ దుష్టుల కోసం / నీకు అమ్ముకోవడానికి ఏదైనా మిగిలితే నాకు చెప్పండయ్యా, కొనడానికి ఏమీ లేనప్పుడు, నేనెందుకు దాని గురించి ఆలోచించాలి?"
+            </blockquote>
+        </div>
+
+    </div>
+
+    <!-- Script for Dark/Light Mode Toggle -->
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            const btn = document.getElementById('themeToggle');
+            btn.textContent = newTheme === 'dark' ? '☀️' : '🌓';
+        }
+    </script>
+</body>
+</html>
